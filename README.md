@@ -13,4 +13,7 @@ A demo on a Serverless FHIR Terminology Service using Knative and WASM (WebAssem
 
 ## Prerequisites
 
+- A Linux or MicroK8s compatible machine
+- 
+
 ## Install
