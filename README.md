@@ -17,3 +17,5 @@ A demo on a Serverless FHIR Terminology Service using Knative and WASM (WebAssem
 - 
 
 ## Install
+
+docker run --runtime io.containerd.wasmedge.v1 -p 8080:8080 terminology-service/lookup:wasm
