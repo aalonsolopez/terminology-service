@@ -18,4 +18,4 @@ RUN chmod a+x wasm.wasm
 
 FROM scratch
 ENTRYPOINT [ "/wasm.wasm" ]
-COPY --link --from=build /src/wasm /wasm.wasm
+COPY --link --from=build /src/wasm.wasm /wasm.wasm
