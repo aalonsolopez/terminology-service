@@ -19,10 +19,10 @@ async fn main() {
     
     let welcome = warp::get()
         .and(warp::path::end())
-        .map(|| "Welcome to the Terminology Service made in Warp");
+        .map(|| "Welcome to the Terminology Service made in Warp, compiled to WebAssembly.");
 
     let routes = welcome;
 
     println!("Server started at localhost:8080");
-    warp::serve(routes).run(([0, 0, 0, 0], 8080)).await
+    warp::serve(routes).run(([0, 0, 0, 0], 8080)).await;
 }

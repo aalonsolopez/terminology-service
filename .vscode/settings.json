@@ -1,0 +1,7 @@
+{
+    "rust-analyzer.checkOnSave": true,
+    "rust-analyzer.linkedProjects": [
+        "src/functions/lookup/wasm/Cargo.toml",
+        "src/functions/lookup/standard/Cargo.toml",
+    ]
+}

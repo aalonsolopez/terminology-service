@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "src/functions/lookup/wasm",
+    "src/functions/lookup/standard",
+]
