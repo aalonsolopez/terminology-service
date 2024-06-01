@@ -1,0 +1,19 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: lookup-wasm
+  namespace: default
+spec:
+  template:
+    spec:
+      runtimeClassName: wasmedge
+      containers:
+      - name: lookup-wasm
+        image: ghcr.io/aalonsolopez/lookup-wasm:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: RUST_BACKTRACE
+          value: full
+        - name: DNS_SERVER
+          value: 10.152.183.10:53
