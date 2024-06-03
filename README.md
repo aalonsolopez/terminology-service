@@ -18,4 +18,36 @@ A demo on a Serverless FHIR Terminology Service using Knative and WASM (WebAssem
 
 ## Install
 
-docker run --runtime io.containerd.wasmedge.v1 -p 8080:8080 terminology-service/lookup:wasm
+> [!NOTE]
+> This is a installation guide for a local environment using minikube. If you are using a different environment, please refer to the official documentation of the respective platform. I've tested it with microk8s and it works as well.
+
+### Install Minikube
+
+Install minikube following the instructions on the [official documentation](https://minikube.sigs.k8s.io/docs/start/).
+
+### Start Minikube
+
+```bash
+minikube start --memory=6144 --cpus=8 --driver='docker' --container-runtime='containerd'
+```
+
+### (Optional) Install Helm
+
+Helm is a package manager for Kubernetes. We will use it to install the Knative components. You can install it following the instructions on the [official documentation](https://helm.sh/docs/intro/install/).
+
+
+### Install Kwasm
+
+We use kwasm as it sets up the environment for the WebAssembly Runtimes. We will use helm to install it. You can use different tools to install it, but I recommend using helm. For other download options, please refer to the [official documentation](https://kwasm.sh/quickstart/)
+
+```bash
+helm repo add kwasm http://kwasm.sh/kwasm-operator/
+helm install -n kwasm --create-namespace kwasm-operator kwasm/kwasm-operator
+kubectl annotate node --all kwasm.sh/kwasm-node=true
+```
+
+### Install Knative
+
+Follow the guide on the [official documentation](https://knative.dev/docs/admin/install/)
+
+## DEPLOY AND PRAY
