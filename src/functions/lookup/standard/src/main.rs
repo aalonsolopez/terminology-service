@@ -19,7 +19,7 @@ async fn main() {
     
     let welcome = warp::get()
         .and(warp::path::end())
-        .map(|| "Welcome to the Terminology Service made in Warp, compiled to WebAssembly.");
+        .map(|| "Welcome to the Terminology Service made in Warp, compiled to standard Rust.");
 
     let routes = welcome;
 
