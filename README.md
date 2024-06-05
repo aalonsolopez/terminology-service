@@ -15,6 +15,15 @@ A demo on a Serverless FHIR Terminology Service using Knative and WASM (WebAssem
 
 - A Linux or minikube compatible machine
 
+
+## Building the WebAssembly Module
+
+The WebAssembly module is built using the Docker Buildx tool.
+
+```bash
+docker buildx build --platform wasi/wasm --runtime io.containerd.wasmedge.v1 -t ghcr.io/aalonsolopez/lookup-wasm:latest .
+```
+
 ## Install
 
 > [!NOTE]
