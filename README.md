@@ -1,4 +1,5 @@
 # FHIR Terminology Service
+
 A demo on a Serverless FHIR Terminology Service using Knative and WASM (WebAssembly)
 
 ## Index
@@ -14,7 +15,6 @@ A demo on a Serverless FHIR Terminology Service using Knative and WASM (WebAssem
 ## Prerequisites
 
 - A Linux or minikube compatible machine
-
 
 ## Building the WebAssembly Module
 
@@ -46,7 +46,7 @@ Helm is a package manager for Kubernetes. We will use it to install the Knative 
 
 ### Install Kwasm
 
-We use kwasm as it sets up the environment for the WebAssembly Runtimes. We will use helm to install it. You can use different tools to install it, but I recommend using helm. For other download options, please refer to the [official documentation](https://kwasm.sh/quickstart/)
+We use kwasm as it sets up the environment for the WebAssembly Runtimes. We will use helm to install it. You can use different tools to install it, but I recommend using helm. For other download options, please refer to the [official documentation](https://   kwasm.sh/quickstart/)
 
 ```bash
 helm repo add kwasm http://kwasm.sh/kwasm-operator/
