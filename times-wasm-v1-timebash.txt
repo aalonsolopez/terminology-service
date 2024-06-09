@@ -1,0 +1,6 @@
+iteration_number,total_time_taken
+1,1.886
+2,1.215
+3,1.218
+4,1.227
+5,1.221
