@@ -44,7 +44,7 @@ for u in {1..200}; do
 
     echo "Curling the URL"
 
-    { /usr/bin/time -f "%e" curl --header "Cache-Control: no-cache, no-store" $URL -o /dev/null -s ; } 2> curl-output-wasm.txt
+    { /usr/bin/time -f "%e" curl --header="Cache-Control: no-cache, no-store" $URL -o /dev/null -s ; } 2> curl-output-wasm.txt
 
     CURL_TIME_WASM=$(head -n 1 curl-output-wasm.txt)
 
