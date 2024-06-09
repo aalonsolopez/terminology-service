@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: config-logging
+ namespace: knative-serving
+data:
+  zap-logger-config.level: "Debug"
+  zap-logger-config.encoderConfig.timeEncoder: "ISO8601"
