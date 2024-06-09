@@ -31,6 +31,8 @@ sleep 5
         URL=$(kubectl get ksvc $SERVICE_NAME -n $NAMESPACE -o jsonpath='{.status.url}')
     fi
 
+    sleep 30
+
 # 2. For a loop of N times, deploy the Knative Service.
 
 echo "iteration_number,total_time_taken" > times-standard.txt
@@ -42,7 +44,7 @@ for i in {1..200}; do
 
     echo "Curling the URL"
 
-    { /usr/bin/time -f "%e" curl $URL -o /dev/null -s ; } 2> curl-output-standard.txt
+    { /usr/bin/time -f "%e" curl --header "Cache-Control: no-cache, no-store" $URL -o /dev/null -s ; } 2> curl-output-standard.txt
 
     CURL_TIME=$(head -n 1 curl-output-standard.txt)
 
@@ -52,5 +54,5 @@ for i in {1..200}; do
 
     echo "----------------------------------------------------------------"
 
-    sleep 90
+    sleep 120
 done

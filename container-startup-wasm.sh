@@ -31,6 +31,8 @@ sleep 5
         URL_WASM=$(kubectl get ksvc $SERVICE_NAME_WASM -n $NAMESPACE_WASM -o jsonpath='{.status.url}')
     fi
 
+    sleep 30
+
 # 2. For a loop of N times, deploy the Knative Service.
 
 echo "iteration_number,total_time_taken" > times-wasm.txt
@@ -42,7 +44,7 @@ for u in {1..200}; do
 
     echo "Curling the URL"
 
-    { /usr/bin/time -f "%e" curl $URL_WASM -o /dev/null -s ; } 2> curl-output-wasm.txt
+    { /usr/bin/time -f "%e" curl --header "Cache-Control: no-cache, no-store" $URL -o /dev/null -s ; } 2> curl-output-wasm.txt
 
     CURL_TIME_WASM=$(head -n 1 curl-output-wasm.txt)
 
@@ -52,5 +54,5 @@ for u in {1..200}; do
 
     echo "----------------------------------------------------------------"
 
-    sleep 90
+    sleep 120
 done
