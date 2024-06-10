@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lookup-wasm
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: lookup-wasm
+  template:
+    metadata:
+      labels:
+        app: lookup-wasm
+    spec:
+      runtimeClassName: wasmedge
+      containers:
+      - name: lookup-wasm
+        image: ghcr.io/aalonsolopez/lookup-wasm:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: RUST_BACKTRACE
+          value: full
+        - name: DNS_SERVER
+          value: 10.152.183.10:53

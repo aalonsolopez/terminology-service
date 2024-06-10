@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lookup-standard
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: lookup-standard
+  template:
+    metadata:
+      labels:
+        app: lookup-standard
+    spec:
+      containers:
+      - name: lookup-standard
+        image: ghcr.io/aalonsolopez/lookup-standard:latest
+        ports:
+        - containerPort: 8080
