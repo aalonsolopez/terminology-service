@@ -27,3 +27,17 @@ spec:
           limits:
             cpu: "1"
             memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lookup-wasm
+  namespace: default
+spec:
+  selector:
+    app: lookup-wasm
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30272
