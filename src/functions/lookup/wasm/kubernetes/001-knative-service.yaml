@@ -9,6 +9,8 @@ spec:
       annotations:
         autoscaling.knative.dev/minScale: "0"
         autoscaling.knative.dev/initial-scale: "0"
+      labels:
+        app: lookup-wasm
     spec:
       runtimeClassName: wasmedge
       containers:
